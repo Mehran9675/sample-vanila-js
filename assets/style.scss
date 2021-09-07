@@ -1,0 +1,192 @@
+html {
+  background-color: white;
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  .desktop {
+    display: none;
+  }
+  width: 100%;
+  min-height: 100%;
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    > div {
+      transition: all 1000ms;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      color: black;
+      max-height: 4.7rem;
+      padding: 0 2rem;
+      border-bottom: 1px solid black;
+      overflow: hidden;
+
+      .head {
+        transition: all 300ms ease-in;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.4rem;
+        font-weight: bold;
+        letter-spacing: 1.4px;
+        margin: 1.25rem 0;
+        &:after {
+          content: "+";
+          float: right;
+          font-size: 2rem;
+        }
+      }
+      .meterials {
+        .made-of {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1.25rem;
+          padding: 0 1rem;
+          padding-bottom: 1.5rem;
+          > div {
+            display: block;
+            text-align: center;
+            p {
+              font-size: 3.5rem;
+              margin: 0;
+              font-weight: 300;
+            }
+            > span {
+              font-size: 1.5rem;
+              color: rgba(0, 0, 0, 0.7);
+              padding: 0 0.7rem;
+              padding-bottom: 1.2rem;
+            }
+            &:nth-child(2) {
+              span {
+                border-bottom: 1px solid black;
+                min-width: 40px;
+              }
+            }
+          }
+        }
+        hr {
+          width: 16%;
+          margin: 0 auto;
+        }
+      }
+    }
+    .information {
+      transition: all 300ms ease-in;
+      text-align: center;
+      font-size: 1.3rem;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .tabs {
+      width: 100%;
+      max-width: 54.9rem;
+      flex-direction: row;
+      > div {
+        padding: 0;
+        border: unset;
+        max-height: fit-content;
+        .head {
+          cursor: pointer;
+          border: 1px solid black;
+          padding: 1.1rem 0;
+          justify-content: center;
+          margin-bottom: 4rem;
+          font-size: 1.8rem;
+          letter-spacing: 1.8px;
+          &:after {
+            display: none;
+          }
+        }
+        .meterials {
+          display: none;
+        }
+      }
+      .information {
+        display: none;
+      }
+    }
+    .desktop {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 65rem;
+      .details {
+        .made-of {
+          transition: all 300ms ease-in;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1.25rem;
+          padding: 0 11.5rem;
+          padding-bottom: 4rem;
+
+          > div {
+            display: block;
+            text-align: center;
+            p {
+              font-size: 5rem;
+              margin: 0;
+              font-weight: 400;
+            }
+            > span {
+              font-size: 2.1rem;
+              color: rgba(0, 0, 0, 0.7);
+              padding: 0 0.7rem;
+              padding-bottom: 2.5rem;
+            }
+            &:nth-child(2) {
+              span {
+                border-bottom: 1px solid black;
+                min-width: 40px;
+              }
+            }
+          }
+        }
+        .information {
+          transition: all 300ms ease-in;
+          text-align: center;
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+  height: 0px !important;
+}
+
+.selected {
+  max-height: 100rem !important;
+  .head {
+    &:after {
+      content: "-" !important;
+    }
+  }
+  @media (min-width: 768px) {
+    .head {
+      background-color: black !important;
+      color: white !important;
+    }
+  }
+}
